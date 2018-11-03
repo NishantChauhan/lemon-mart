@@ -22,7 +22,6 @@ describe('InventoryComponent', () => {
         { provide: MatIconRegistry, useClass: MatIconRegistryFake },
         { provide: DomSanitizer, useClass: DomSanitizerFake },
       ]),
-
       declarations: [InventoryComponent],
     }).compileComponents()
   }))
