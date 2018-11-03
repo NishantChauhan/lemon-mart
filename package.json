@@ -12,6 +12,7 @@
     "e2e": "ng e2e",
     "build:prod": "ng build --prod",
     "test:prod": "npm test -- --watch=false",
+    "build:ci": "cross-conf-env docker build --no-cache -f Dockerfile.integration . -t $npm_package_config_imageRepo:latest",
     "predocker:build": "npm run build -- --prod --output-path dist && npm test -- --watch=false && npm run e2e",
     "docker:build": "cross-conf-env docker image build . -t $npm_package_config_imageRepo:$npm_package_version",
     "postdocker:build": "npm run docker:tag",
