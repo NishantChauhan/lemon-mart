@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: docker:17.12.0-ce-git
+      - image: circleci/node:8.12
     working_directory: /usr/src
     steps:
       - checkout
