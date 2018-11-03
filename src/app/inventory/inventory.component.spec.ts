@@ -9,11 +9,10 @@ import {
   MatIconRegistryFake,
   ObservableMediaFake,
 } from './../common/common-testing'
-import { ManagerComponent } from './manager.component'
-
-describe('ManagerComponent', () => {
-  let component: ManagerComponent
-  let fixture: ComponentFixture<ManagerComponent>
+import { InventoryComponent } from './inventory.component'
+describe('InventoryComponent', () => {
+  let component: InventoryComponent
+  let fixture: ComponentFixture<InventoryComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -23,12 +22,13 @@ describe('ManagerComponent', () => {
         { provide: MatIconRegistry, useClass: MatIconRegistryFake },
         { provide: DomSanitizer, useClass: DomSanitizerFake },
       ]),
-      declarations: [ManagerComponent],
+
+      declarations: [InventoryComponent],
     }).compileComponents()
   }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManagerComponent)
+    fixture = TestBed.createComponent(InventoryComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })
