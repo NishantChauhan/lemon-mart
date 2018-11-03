@@ -16,6 +16,7 @@
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.insertSpaces": true,
   "prettier.printWidth": 90, // Following setting requires Prettier Extension
   "prettier.semi": false, // StandardJS
   "prettier.singleQuote": true,
