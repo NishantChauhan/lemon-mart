@@ -85,6 +85,6 @@
   "config": {
     "imageRepo": "nishantchouhan/lemon-mart",
     "imageName": "lemon-mart-app",
-    "imagePort": "8080"
+    "imagePort": "3000"
   }
 }
