@@ -3,9 +3,13 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import {
   MatButtonModule,
   MatCardModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
+  MatSidenavModule,
+  MatSnackBarModule,
   MatToolbarModule,
   MatTooltipModule,
 } from '@angular/material'
@@ -20,6 +24,10 @@ import {
     MatInputModule,
     MatFormFieldModule,
     FlexLayoutModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   exports: [
     MatButtonModule,
@@ -30,6 +38,10 @@ import {
     MatCardModule,
     MatFormFieldModule,
     FlexLayoutModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
   ],
 })
 export class MaterialModule {}
