@@ -1,9 +1,8 @@
 import { TestBed } from '@angular/core/testing'
-import { AuthGuard } from '../auth/auth-guard.service'
-import { commonTestingModules, commonTestingProviders } from './common-testing'
-import { UiService } from './ui.service'
+import { commonTestingModules, commonTestingProviders } from '../common/common-testing'
+import { AuthGuard } from './auth-guard.service'
 
-describe('UiService', () => {
+describe('AuthGuardService', () => {
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: commonTestingModules,
@@ -11,7 +10,7 @@ describe('UiService', () => {
     }))
 
   it('should be created', () => {
-    const service: UiService = TestBed.get(UiService)
+    const service: AuthGuard = TestBed.get(AuthGuard)
     expect(service).toBeTruthy()
   })
 })

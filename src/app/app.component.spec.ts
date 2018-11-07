@@ -11,10 +11,11 @@ import {
   MatIconRegistryFake,
   ObservableMediaFake,
 } from './common/common-testing'
+import { UserModule } from './user/user.module'
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: commonTestingModules,
+      imports: [commonTestingModules, UserModule],
       providers: commonTestingProviders.concat([
         { provide: ObservableMedia, useClass: ObservableMediaFake },
         { provide: MatIconRegistry, useClass: MatIconRegistryFake },

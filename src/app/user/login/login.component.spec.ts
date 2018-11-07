@@ -1,4 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import {
+  commonTestingModules,
+  commonTestingProviders,
+} from 'src/app/common/common-testing'
 import { LoginComponent } from './login.component'
 
 describe('LoginComponent', () => {
@@ -7,7 +11,9 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: commonTestingModules,
       declarations: [LoginComponent],
+      providers: [commonTestingProviders],
     }).compileComponents()
   }))
 
