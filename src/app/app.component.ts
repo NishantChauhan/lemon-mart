@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, ViewChild } from '@angular/core'
 import { ObservableMedia } from '@angular/flex-layout'
-import { MatIconRegistry } from '@angular/material'
+import { MatIconRegistry, MatSidenav } from '@angular/material'
 import { DomSanitizer } from '@angular/platform-browser'
 import { AuthService } from './auth/auth.service'
 
@@ -9,7 +9,7 @@ import { AuthService } from './auth/auth.service'
   template: `
   <div class="app-container">
     <mat-toolbar color="primary" fxLayoutGap="8px" class="app-toolbar"
-      [class.app-is-mobile]="media.isActive('xs')">
+      [class.app-is-mobile]="media.isActive('xs')" *ngIf="authService.authStatus | async as authStatus">
       <button *ngIf="displayAccountIcons" mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -24,8 +24,7 @@ import { AuthService } from './auth/auth.service'
         matTooltip="Logout" aria-label="Logout"><mat-icon>lock_open</mat-icon>
       </button>
     </mat-toolbar>
-    <mat-sidenav-container class="app-sidenav-container"
-                          [style.marginTop.px]="media.isActive('xs') ? 56 : 0">
+    <mat-sidenav-container class="app-sidenav-container">
       <mat-sidenav #sidenav [mode]="media.isActive('xs') ? 'over' : 'side'"
                   [fixedInViewport]="media.isActive('xs')" fixedTopGap="56">
         <app-navigation-menu></app-navigation-menu>
@@ -65,6 +64,7 @@ import { AuthService } from './auth/auth.service'
   ],
 })
 export class AppComponent implements OnInit {
+  @ViewChild('sidenav') public sideNav: MatSidenav
   title = 'lemon-mart'
   _displayAccountIcons = false
   constructor(
@@ -80,6 +80,9 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.authService.authStatus.subscribe(authStatus => {
+      if (!authStatus.isAuthenticated) {
+        this.sideNav.close()
+      }
       setTimeout(() => {
         this._displayAccountIcons = authStatus.isAuthenticated
       }, 0)

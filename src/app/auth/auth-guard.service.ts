@@ -63,10 +63,9 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     if (!this.currentAuthStatus.isAuthenticated || !roleMatch) {
       this.showAlert(this.currentAuthStatus.isAuthenticated, roleMatch)
 
-      this.router.navigate(['login', params || {}])
+      this.router.navigate(['login', params])
       return false
     }
-
     return true
   }
 

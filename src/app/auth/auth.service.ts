@@ -37,8 +37,9 @@ export class AuthService extends CacheService implements IAuthService {
     email: string,
     password: string
   ) => Observable<IServerAuthResponse>
-
-  authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthStatus)
+  authStatus = new BehaviorSubject<IAuthStatus>(
+    this.getItem('authStatus') || defaultAuthStatus
+  )
 
   constructor(private httpClient: HttpClient) {
     super()
